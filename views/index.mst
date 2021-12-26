@@ -7,6 +7,30 @@
     <title>Hebrew Learning App</title>
 </head>
 <body>
-    <h1>Hebrew Learning App</h1>
+    <h1>{{pageTitle}}</h1>
+
+    {{! 
+        We're using the mustache library to "render" our HTML
+        ie. to insert data from our server/database into our HTML file
+
+        Here's a nice cheatsheet for mustache syntax
+        https://gist.github.com/Dammmien/5f0bff8643cb931da7e9495f782aad0a
+
+        See https://github.com/janl/mustache.js 
+        for full documentation
+    }}
+
+    {{!
+        Loop through the array of words
+    }}
+    <h2>Some hebrew words:</h2>
+    <ul>
+        {{#words}}
+            <li>
+                {{word}}
+                <audio controls src="{{audioSrc}}"></audio>
+            </li>
+        {{/words}}
+    </ul>
 </body>
 </html>
