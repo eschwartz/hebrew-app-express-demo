@@ -11,7 +11,7 @@ const connection = mysql.createPool({
     host: process.env.MYSQL_HOST || 'localhost',
     user: process.env.MYSQL_USER || 'root',
     password: process.env.MYSQL_PWD,
-    database: process.env.MYSQL_DB
+    database: process.env.MYSQL_DB || 'HebrewLearning'
 });
 
 // Export the database connection, so we can
