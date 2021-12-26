@@ -50,8 +50,17 @@ router.get('/index.html', async function(res, res) {
     // The second argument is that data that we're passing
     // to the index.mst template.
     res.render('index', {
+        // This value will be accessible in index.mst
+        // as {{pageTitle}}
         pageTitle: 'Hebrew Learning App',
-        words: dbRows
+        // We can loop through this list of words
+        // using the {{#words}} syntax
+        words: dbRows,
+
+        // If we want to run some "client side" code (eg. jQuery)
+        // to work with our data, we can include the array of words
+        // as "JSON" in our HTML
+        wordsJSON: JSON.stringify(dbRows, null, 2)
     });
 });
 

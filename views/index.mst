@@ -22,8 +22,12 @@
 
     {{!
         Loop through the array of words
+        and render as HTML elements
     }}
-    <h2>Some hebrew words:</h2>
+    <h2>Rendering our words as HTML:</h2>
+    <p>
+        This is a simpler approach, but does not allow the app
+        to be interactive (eg, create our own button)
     <ul>
         {{#words}}
             <li>
@@ -32,5 +36,26 @@
             </li>
         {{/words}}
     </ul>
+
+    <h2>Rendering our words using JS/jQuery</h2>
+    <p>
+        This element is populated with HTML
+        from inside /public/js/words.js using jQuery
+    </p>
+    <ul id="words">
+    </ul>
+
+    <script>
+        // We can access our raw database data
+        // as JSON, and save it to a global variable.
+        // This variable will now be accessible to the JS
+        // file in /public/js/words.js
+        window.words = {{{wordsJSON}}}
+    </script>
+    
+    <!-- Load in jQuery -->
+    <script src="/js/jquery.js"></script>
+    <!-- Load in our "client-side" JS from /js/words.js -->
+    <script src="/js/words.js"></script>
 </body>
 </html>
